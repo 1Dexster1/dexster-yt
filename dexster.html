@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dexster - YouTube</title>
+  <title>Dexster - YouTube Player</title>
   <style>
     * {
       box-sizing: border-box;
@@ -34,8 +34,6 @@
       margin: 30px 0;
       width: 90%;
       max-width: 600px;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      animation: fadeInDown 2s ease;
     }
     #youtube-search {
       flex: 1;
@@ -44,13 +42,6 @@
       border-radius: 30px 0 0 30px;
       font-size: 1rem;
       outline: none;
-      transition: all 0.3s ease;
-    }
-    #youtube-search:focus {
-      background-color: #ffffff;
-      color: #333;
-      transform: scale(1.02);
-      box-shadow: 0 0 10px #34a853;
     }
     button {
       padding: 15px 25px;
@@ -61,7 +52,6 @@
       font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      animation: pulse 2s infinite;
     }
     button:hover {
       background-color: #2c8b47;
@@ -73,8 +63,6 @@
       margin: 20px 0;
       width: 90%;
       max-width: 600px;
-      overflow-y: auto;
-      max-height: 300px;
     }
     #video-list li {
       background-color: rgba(50, 50, 50, 0.8);
@@ -88,9 +76,6 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      animation: slideInLeft 0.5s forwards;
     }
     #video-list li:hover {
       background-color: #555;
@@ -106,45 +91,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 90%;
+      max-width: 800px;
+      margin-top: 20px;
+    }
+    iframe {
       width: 100%;
       max-width: 800px;
-      padding: 20px;
-      background-color: rgba(30, 30, 30, 0.9);
+      aspect-ratio: 16/9;
+      border: none;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      margin-bottom: 20px;
-      animation: fadeInUp 1s ease;
     }
-    #youtube-player {
-      width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16/9;
+    .statistics {
+      width: 90%;
+      max-width: 600px;
+      background-color: rgba(30, 30, 30, 0.9);
+      padding: 20px;
       border-radius: 10px;
-      overflow: hidden;
+      margin: 20px 0;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
-    .suggestions {
-      display: flex;
-      overflow-x: auto;
-      margin-top: 20px;
-      gap: 10px;
+    .statistics div {
+      margin: 10px 0;
     }
-    .suggestion-thumbnail {
-      width: 100px;
-      height: 60px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .statistics span {
+      font-weight: bold;
+      color: #34a853;
     }
-    .suggestion-thumbnail:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    .download-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -153,46 +129,7 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    
-     @media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-}
- 
-  .statistics {
-  width: 90%;
-  max-width: 600px;
-  background-color: rgba(30, 30, 30, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  color: #ffffff;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-  .statistics div {
-      margin: 10px 0;
-    }
-    .statistics span {
-      font-weight: bold;
-      color: #34a853;
-    }
-  
-     
-        .ping {
+    .ping {
             font-weight: bold;
             transition: color 0.3s ease-in-out;
         }
@@ -208,235 +145,131 @@
         .ping.error {
             color: gray;
            }
+           @media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
   </style>
-  
-  
-  
-  
-  
- 
 </head>
 <body>
-  <h1>Dexster - YouTube</h1>
- <div class="search-bar">
-  <input type="text" id="youtube-search" placeholder="دوس هنا علشان تعمل بحث">
-  <button onclick="searchYouTube()">بحث</button>
-</div>
-
-<ul id="video-list"></ul>
-
-<div id="youtube-player-container">
-  <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-  <div class="suggestions" id="suggested-videos"></div>
-</div>
-
-</div>
-
-<div class="statistics">
-  <div>عدد الزوار : <span id="visitor-count">0</span></div>
-  <div>إجمالي الفيديوهات المُشغلة : <span id="total-videos">0</span></div>
- 
-  <div>إجمالي عمليات البحث : <span id="total-search-count">0</span></div>
-  <div>آخر بحث : <span id="last-search">لم يتم أي بحث بعد</span></div>
-  <div>متوسط الفيديوهات لكل زائر : <span id="avg-videos">0</span></div>
-  <div>البنج الحالي ( الخاص بك ) : <span id="ping" class="ping">جارٍ الحساب...</span></div>
-    
-</div>
-
+  <h1>Dexster - YouTube Player</h1>
+  <div class="search-bar">
+    <input type="text" id="youtube-search" placeholder="Enter search term...">
+    <button onclick="searchYouTube()">Search</button>
   </div>
 
-    <script>
-    // استعادة البيانات من LocalStorage
+  <ul id="video-list"></ul>
+
+  <div id="youtube-player-container">
+    <iframe id="youtube-player" src="" allowfullscreen></iframe>
+  </div>
+
+  <div class="statistics">
+    <div>عدد الزوار : <span id="visitor-count">0</span></div>
+    <div>إجمالي الفيديوهات المُشغلة : <span id="total-videos">0</span></div>
+   
+    <div>إجمالي عمليات البحث : <span id="total-search-count">0</span></div>
+    <div>آخر بحث : <span id="last-search">لم يتم أي بحث بعد</span></div>
+   
+    <div>البنج الحالي ( الخاص بك ) : <span id="ping" class="ping">جارٍ الحساب...</span></div>
+      
+  </div>
+
+  <script>
     let visitorCount = parseInt(localStorage.getItem('visitorCount') || 0);
     let totalVideos = parseInt(localStorage.getItem('totalVideos') || 0);
     let totalSearchCount = parseInt(localStorage.getItem('totalSearchCount') || 0);
-    let lastSearchQuery = localStorage.getItem('lastSearchQuery') || 'لم يتم أي بحث بعد';
+    let lastSearchQuery = localStorage.getItem('lastSearchQuery') || 'None';
 
-    // تحديث واجهة الإحصاءات
     visitorCount++;
     document.getElementById('visitor-count').textContent = visitorCount;
     document.getElementById('total-videos').textContent = totalVideos;
     document.getElementById('total-search-count').textContent = totalSearchCount;
     document.getElementById('last-search').textContent = lastSearchQuery;
 
-    // حفظ البيانات الجديدة
     localStorage.setItem('visitorCount', visitorCount);
 
-    function searchYouTube() {
+    async function searchYouTube() {
       const query = document.getElementById("youtube-search").value.trim();
-      if (!query) return alert("بطل عبط يسطا واكتب حاجة");
+      if (!query) return alert("Please enter a search term!");
 
-      totalSearchCount++;
-      lastSearchQuery = query;
+      const apiKey = "AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8"; 
+      const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey}`;
 
-      document.getElementById('total-search-count').textContent = totalSearchCount;
-      document.getElementById('last-search').textContent = query;
+      try {
+        totalSearchCount++;
+        lastSearchQuery = query;
+        document.getElementById('total-search-count').textContent = totalSearchCount;
+        document.getElementById('last-search').textContent = lastSearchQuery;
 
-      // تحديث البيانات في LocalStorage
-      localStorage.setItem('totalSearchCount', totalSearchCount);
-      localStorage.setItem('lastSearchQuery', query);
+        localStorage.setItem('totalSearchCount', totalSearchCount);
+        localStorage.setItem('lastSearchQuery', lastSearchQuery);
 
-      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8`)
-        .then(response => response.json())
-        .then(data => {
-          const videoList = document.getElementById('video-list');
-          videoList.innerHTML = '';
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-          data.items.forEach(item => {
-            const videoItem = document.createElement('li');
-            const thumbnail = document.createElement('img');
-            thumbnail.src = item.snippet.thumbnails.default.url;
-            thumbnail.className = 'thumbnail';
+        const videoList = document.getElementById('video-list');
+        videoList.innerHTML = '';
 
-            const title = document.createElement('span');
-            title.textContent = item.snippet.title;
+        data.items.forEach(item => {
+          const videoItem = document.createElement('li');
+          const thumbnail = document.createElement('img');
+          thumbnail.src = item.snippet.thumbnails.default.url;
+          thumbnail.className = 'thumbnail';
 
-            videoItem.appendChild(thumbnail);
-            videoItem.appendChild(title);
-            videoItem.onclick = () => playVideo(item.id.videoId);
+          const title = document.createElement('span');
+          title.textContent = item.snippet.title;
 
-            videoList.appendChild(videoItem);
-          });
+          videoItem.appendChild(thumbnail);
+          videoItem.appendChild(title);
+          videoItem.onclick = () => playVideo(item.id.videoId);
+
+          videoList.appendChild(videoItem);
         });
+      } catch (error) {
+        console.error("Error fetching YouTube data:", error);
+        alert("Failed to fetch data. Please try again later.");
+      }
     }
 
-  function playVideo(videoId) {
-  totalVideos++;
-  document.getElementById('total-videos').textContent = totalVideos;
+    function playVideo(videoId) {
+      const player = document.getElementById('youtube-player');
+      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
-  // حفظ البيانات
-  localStorage.setItem('totalVideos', totalVideos);
-
-  // تحديث مصدر الإطار لتشغيل الفيديوfunction searchYouTube() {
-  const query = document.getElementById("youtube-search").value.trim();
-  if (!query) return alert("بطل عبط يسطا واكتب حاجه" );
-
-  totalSearchCount++;
-  lastSearchQuery = query;
-
-  document.getElementById('total-search-count').textContent = totalSearchCount;
-  document.getElementById('last-search').textContent = query;
-
-  // حفظ البيانات في LocalStorage
-  localStorage.setItem('totalSearchCount', totalSearchCount);
-  localStorage.setItem('lastSearchQuery', query);
-
-  // إرسال طلب للـ YouTube API
-  fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8`)
-    .then(response => response.json())
-    .then(data => {
-      const videoList = document.getElementById('video-list');
-      videoList.innerHTML = ''; // تفريغ القائمة الحالية
-
-      data.items.forEach(item => {
-        const videoItem = document.createElement('li');
-        const thumbnail = document.createElement('img');
-        thumbnail.src = item.snippet.thumbnails.default.url;
-        thumbnail.className = 'thumbnail';
-
-        const title = document.createElement('span');
-        title.textContent = item.snippet.title;
-
-        videoItem.appendChild(thumbnail);
-        videoItem.appendChild(title);
-        videoItem.onclick = () => playVideo(item.id.videoId);
-
-        videoList.appendChild(videoItem);
-      });
-    })
-    .catch(error => {
-      console.error("خطأ أثناء استدعاء الـ YouTube API:", error);
-      alert("حدث خطأ أثناء البحث، يرجى المحاولة مرة أخرى.");
-    });
-}
-
-function playVideo(videoId) {
-  totalVideos++;
-  document.getElementById('total-videos').textContent = totalVideos;
-
-  // حفظ البيانات
-  localStorage.setItem('totalVideos', totalVideos);
-
-  
-  const player = document.getElementById('youtube-player');
-  player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-}
+      totalVideos++;
+      document.getElementById('total-videos').textContent = totalVideos;
+      localStorage.setItem('totalVideos', totalVideos);
+    }
 
 
-        function detectDevTools() {
-            const threshold = 160; // حد أدنى لارتفاع وحدة التحكم
-            const widthThreshold = 200; // حد أدنى لعرض وحدة التحكم
-            let devToolsOpened = false;
-
-            setInterval(() => {
-                const width = window.outerWidth - window.innerWidth > widthThreshold;
-                const height = window.outerHeight - window.innerHeight > threshold;
-
-                if (width || height) {
-                    if (!devToolsOpened) {
-                        devToolsOpened = true;
-                        alert("تم اكتشاف أدوات المطور! سيتم إعادة توجيهك.");
-                        window.location.href = "https://www.google.com"; // إعادة توجيه
-                    }
-                } else {
-                    devToolsOpened = false;
-                }
-            }, 1000); // فحص كل ثانية
-        }
-
-        // منع استخدام F12
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I") || (event.ctrlKey && event.shiftKey && event.key === "C")) {
-                event.preventDefault();
-                alert("غير مسموح باستخدام أدوات المطور!");
-                window.location.href = "https://www.google.com"; // إعادة توجيه
-            }
-        });
-
-        // استدعاء وظيفة الكشف
-        detectDevTools();
-
-
-
-
-
-        function updatePing() {
+    function updatePing() {
             const pingElement = document.getElementById("ping");
             const startTime = Date.now();
 
-            fetch("https://dexster-yt.pages.dev", { mode: "no-cors" })
+            fetch("https://www.google.com", { mode: "no-cors" })
                 .then(() => {
                     const ping = Date.now() - startTime;
                     pingElement.textContent = `${ping} مللي ثانية`;
 
-                    // تغيير لون النص بناءً على البينج
+                   
                     if (ping <= 50) {
-                        pingElement.className = "ping good"; // بينج جيد
+                        pingElement.className = "ping good"; 
                     } else if (ping <= 150) {
-                        pingElement.className = "ping medium"; // بينج متوسط
+                        pingElement.className = "ping medium"; 
                     } else {
-                        pingElement.className = "ping high"; // بينج سيء
+                        pingElement.className = "ping high"; 
                     }
                 })
                 .catch(() => {
                     pingElement.textContent = "لا يوجد اتصال";
-                    pingElement.className = "ping error"; // في حالة الخطأ
+                    pingElement.className = "ping error"; 
                 });
         }
 
-        // تحديث البينج بشكل فوري عند تحميل الصفحة وعند حدوث تغيير
-        setInterval(updatePing, 2000); // تحديث كل ثانيتين
+        setInterval(updatePing, 2000); 
         updatePing();
 
-
-
   </script>
-  
-
-  
-  
-  
 </body>
 </html>
