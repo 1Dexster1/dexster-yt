@@ -103,24 +103,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
-    .statistics {
-      width: 90%;
-      max-width: 600px;
-      background-color: rgba(30, 30, 30, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px 0;
-      color: #ffffff;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-    .statistics div {
-      margin: 10px 0;
-    }
-    .statistics span {
-      font-weight: bold;
-      color: #34a853;
-    }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -129,27 +111,6 @@
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .ping {
-            font-weight: bold;
-            transition: color 0.3s ease-in-out;
-        }
-        .ping.good {
-            color: green;
-        }
-        .ping.medium {
-            color: orange;
-        }
-        .ping.high {
-            color: red;
-        }
-        .ping.error {
-            color: gray;
-           }
-           @media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-}
   </style>
 </head>
 <body>
@@ -165,47 +126,15 @@
     <iframe id="youtube-player" src="" allowfullscreen></iframe>
   </div>
 
-  <div class="statistics">
-    <div>عدد الزوار : <span id="visitor-count">0</span></div>
-    <div>إجمالي الفيديوهات المُشغلة : <span id="total-videos">0</span></div>
-   
-    <div>إجمالي عمليات البحث : <span id="total-search-count">0</span></div>
-    <div>آخر بحث : <span id="last-search">لم يتم أي بحث بعد</span></div>
-   
-    <div>البنج الحالي ( الخاص بك ) : <span id="ping" class="ping">جارٍ الحساب...</span></div>
-      
-  </div>
-
   <script>
-    let visitorCount = parseInt(localStorage.getItem('visitorCount') || 0);
-    let totalVideos = parseInt(localStorage.getItem('totalVideos') || 0);
-    let totalSearchCount = parseInt(localStorage.getItem('totalSearchCount') || 0);
-    let lastSearchQuery = localStorage.getItem('lastSearchQuery') || 'None';
-
-    visitorCount++;
-    document.getElementById('visitor-count').textContent = visitorCount;
-    document.getElementById('total-videos').textContent = totalVideos;
-    document.getElementById('total-search-count').textContent = totalSearchCount;
-    document.getElementById('last-search').textContent = lastSearchQuery;
-
-    localStorage.setItem('visitorCount', visitorCount);
-
     async function searchYouTube() {
       const query = document.getElementById("youtube-search").value.trim();
       if (!query) return alert("Please enter a search term!");
 
-      const apiKey = "AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8"; 
+      const apiKey = "AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8"; // Replace with your actual YouTube API key
       const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=${apiKey}`;
 
       try {
-        totalSearchCount++;
-        lastSearchQuery = query;
-        document.getElementById('total-search-count').textContent = totalSearchCount;
-        document.getElementById('last-search').textContent = lastSearchQuery;
-
-        localStorage.setItem('totalSearchCount', totalSearchCount);
-        localStorage.setItem('lastSearchQuery', lastSearchQuery);
-
         const response = await fetch(apiUrl);
         const data = await response.json();
 
@@ -236,40 +165,7 @@
     function playVideo(videoId) {
       const player = document.getElementById('youtube-player');
       player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-
-      totalVideos++;
-      document.getElementById('total-videos').textContent = totalVideos;
-      localStorage.setItem('totalVideos', totalVideos);
     }
-
-
-    function updatePing() {
-            const pingElement = document.getElementById("ping");
-            const startTime = Date.now();
-
-            fetch("https://www.google.com", { mode: "no-cors" })
-                .then(() => {
-                    const ping = Date.now() - startTime;
-                    pingElement.textContent = `${ping} مللي ثانية`;
-
-                   
-                    if (ping <= 50) {
-                        pingElement.className = "ping good"; 
-                    } else if (ping <= 150) {
-                        pingElement.className = "ping medium"; 
-                    } else {
-                        pingElement.className = "ping high"; 
-                    }
-                })
-                .catch(() => {
-                    pingElement.textContent = "لا يوجد اتصال";
-                    pingElement.className = "ping error"; 
-                });
-        }
-
-        setInterval(updatePing, 2000); 
-        updatePing();
-
   </script>
 </body>
 </html>
