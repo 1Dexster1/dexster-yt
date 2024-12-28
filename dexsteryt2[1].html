@@ -289,16 +289,7 @@ animation: fadeInDown 2.5s ease;
 
 </div>
 
-<div class="statistics">
-  <div>عدد الزوار : <span id="visitor-count">0</span></div>
-  <div>إجمالي الفيديوهات المُشغلة : <span id="total-videos">0</span></div>
- 
-  <div>إجمالي عمليات البحث : <span id="total-search-count">0</span></div>
-  <div>آخر بحث : <span id="last-search">لم يتم أي بحث بعد</span></div>
-  <div>متوسط الفيديوهات لكل زائر : <span id="avg-videos">0</span></div>
-  <div>البنج الحالي ( الخاص بك ) : <span id="ping" class="ping">جارٍ الحساب...</span></div>
-    
-</div>
+
 
   </div>
 <div class="container-fluid footer_section1">
@@ -309,35 +300,22 @@ animation: fadeInDown 2.5s ease;
 
     <script>
     
-    let visitorCount = parseInt(localStorage.getItem('visitorCount') || 0);
-    let totalVideos = parseInt(localStorage.getItem('totalVideos') || 0);
-    let totalSearchCount = parseInt(localStorage.getItem('totalSearchCount') || 0);
-    let lastSearchQuery = localStorage.getItem('lastSearchQuery') || 'لم يتم أي بحث بعد';
+ 
 
     
-    visitorCount++;
-    document.getElementById('visitor-count').textContent = visitorCount;
-    document.getElementById('total-videos').textContent = totalVideos;
-    document.getElementById('total-search-count').textContent = totalSearchCount;
-    document.getElementById('last-search').textContent = lastSearchQuery;
+  
 
    
-    localStorage.setItem('visitorCount', visitorCount);
+ 
 
     function searchYouTube() {
       const query = document.getElementById("youtube-search").value.trim();
       if (!query) return alert("بطل عبط يسطا واكتب حاجة");
 
-      totalSearchCount++;
-      lastSearchQuery = query;
+   
 
-      document.getElementById('total-search-count').textContent = totalSearchCount;
-      document.getElementById('last-search').textContent = query;
 
-      
-      localStorage.setItem('totalSearchCount', totalSearchCount);
-      localStorage.setItem('lastSearchQuery', query);
-
+  
       fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8`)
         .then(response => response.json())
         .then(data => {
@@ -362,27 +340,15 @@ animation: fadeInDown 2.5s ease;
         });
     }
 
-  function playVideo(videoId) {
-  totalVideos++;
-  document.getElementById('total-videos').textContent = totalVideos;
-
   
-  localStorage.setItem('totalVideos', totalVideos);
 
   
   function    searchYouTube() {}
   const query = document.getElementById("youtube-search").value.trim();
   if (!query) return alert("بطل عبط يسطا واكتب حاجه" );
 
-  totalSearchCount++;
-  lastSearchQuery = query;
-
-  document.getElementById('total-search-count').textContent = totalSearchCount;
-  document.getElementById('last-search').textContent = query; // حفظ البيانات في LocalStorage
 
  
-  localStorage.setItem('totalSearchCount', totalSearchCount);
-  localStorage.setItem('lastSearchQuery', query);
 
   
   fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=5&key=AIzaSyAXu7dnLMNJvk5mQ9hMsRaMqK6Iifgsjn8`)
@@ -414,11 +380,7 @@ animation: fadeInDown 2.5s ease;
 }
 
 function playVideo(videoId) {
-  totalVideos++;
-  document.getElementById('total-videos').textContent = totalVideos;
-
-
-  localStorage.setItem('totalVideos', totalVideos);
+ 
 
   
   const player = document.getElementById('youtube-player');
