@@ -1,129 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dexster - YouTube Player</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #000000, #ffffff6e);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #ffffff;
-      min-height: 100vh;
-      animation: fadeIn 1s ease-out;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-top: 30px;
-      color: #e2e8f0;
-      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      letter-spacing: 2px;
-      animation: fadeInDown 1.5s ease;
-    }
-    .search-bar {
-      display: flex;
-      align-items: center;
-      margin: 30px 0;
-      width: 90%;
-      max-width: 600px;
-    }
-    #youtube-search {
-      flex: 1;
-      padding: 15px;
-      border: none;
-      border-radius: 30px 0 0 30px;
-      font-size: 1rem;
-      outline: none;
-    }
-    button {
-      padding: 15px 25px;
-      border: none;
-      background-color: #34a853;
-      color: white;
-      border-radius: 0 30px 30px 0;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    button:hover {
-      background-color: #2c8b47;
-      transform: scale(1.05);
-    }
-    #video-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      width: 90%;
-      max-width: 600px;
-    }
-    #video-list li {
-      background-color: rgba(50, 50, 50, 0.8);
-      padding: 15px;
-      margin: 8px 0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-      text-align: left;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    #video-list li:hover {
-      background-color: #555;
-      transform: translateX(10px);
-    }
-    .thumbnail {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    #youtube-player-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 90%;
-      max-width: 800px;
-      margin-top: 20px;
-    }
-    iframe {
-      width: 100%;
-      max-width: 800px;
-      aspect-ratio: 16/9;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexster.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .portfolio, .skills, .about, .contact {
+            margin: 40px 0;
+        }
+
+        .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: calc(30% - 40px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .portfolio-item:hover {
+            transfo<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .portfolio, .skills, .about, .contact {
+            margin: 40px 0;
+        }
+
+        .portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: calc(30% - 40px);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+rm: scale(1.05);
+        }
+
+        .portfolio-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .skills {
+            background: #ececec;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .skills h2, .about h2, .contact h2 {
+            text-align: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px 20px;
+            width: calc(20% - 40px);
+            textbox-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+rm: scale(1.05);
+        }
+max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .skills {
+            background: #ececec;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .skills h2, .about h2, .contact h2 {
+            text-align: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px 20px;
+            width: calc(20% - 40px);
+            text-align: center;
+            transition: background 0.3s;
+        }
+-align: center;
+            transition: background 0.3s;
+        }
+
+        .skill-item:hover {
+            background: #d6d6d6;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .portfolio-item img {
+@media (max-width: 768px) {
+            .portfolio-item {
+                width: calc(45% - 40px);
+            }
+            .skill-item {
+                width: calc(45% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-item, .skill-item {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Dexster - YouTube Player</h1>
-  <div class="search-bar">
-    <input type="text" id="youtube-search" placeholder="Enter search term...">
-    <button onclick="searchYouTube()">Search</button>
-  </div>
+    <header>
+        <h1>Dexster</h1>
+        <p>Highly Creative And Sophisticated Programmer</p>
+    </header>
 
-  <ul id="video-list"></ul>
+    <div class="container">
+        <!-- About Me Section -->
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Hello, My Name Is Ebrahim , Call Me "Dexster" I Am A Discord & Web Developer. In Fact, I Do Not Have a Lot To Say About Myself, But This Website Is The First Website I Have Adopted In My Journey.</p></section>
 
-  <div id="youtube-player-container">
-    <iframe id="youtube-player" src="" allowfullscreen></iframe>
-  </div>
+        <!-- Skills Section -->
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">HTML</div>
+                <div class="skill-item">CSS</div>
+                <div class="skill-item">JavaScript</div>
+               
+                <div class="skill-item">Node.js</div>
+               
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio">
+            <h2>My Work</h2>
+            <div class="portfolio-item">
+<img src="project1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>They are being worked on</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>They are being worked on</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="portfolio-item">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>They are being worked on</p>
+                <a href="#">View Project</a>
+            </div>
+            <!-- Add more portfolio items as needed -->
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me via email or connect with me on social media!</p>
+            <p>Email : <a href="mailto:yourname@example.com">dexster121212@gmail.com</a></p>
+       
+            
+    </div>
+
+    <footer>
+        <p>Â© 2024 My Profile. All rights Reserved.</p>
+    </footer>
 </body>
+
 </html>
+
