@@ -392,66 +392,7 @@ function playVideo(videoId) {
 
 
 
-        function updatePing() {
-            const pingElement = document.getElementById("ping");
-            const startTime = Date.now();
-
-            fetch("https://dexster-yt.pages.dev", { mode: "no-cors" })
-                .then(() => {
-                    const ping = Date.now() - startTime;
-                    pingElement.textContent = `${ping} مللي ثانية`;
-
-         
-                    if (ping <= 50) {
-                        pingElement.className = "ping good"; 
-                    } else if (ping <= 150) {
-                        pingElement.className = "ping medium"; 
-                    } else {
-                        pingElement.className = "ping high"; 
-                    }
-                })
-                .catch(() => {
-                    pingElement.textContent = "لا يوجد اتصال";
-                    pingElement.className = "ping error"; 
-                });
-        }
-
-       
-        setInterval(updatePing, 2000); 
-        updatePing();
-
-        function detectDevTools() {
-            const threshold = 160; // حد أدنى لارتفاع وحدة التحكم
-            const widthThreshold = 200; // حد أدنى لعرض وحدة التحكم
-            let devToolsOpened = false;
-
-            setInterval(() => {
-                const width = window.outerWidth - window.innerWidth > widthThreshold;
-                const height = window.outerHeight - window.innerHeight > threshold;
-
-                if (width || height) {
-                    if (!devToolsOpened) {
-                        devToolsOpened = true;
-                        alert("العب بعيد يحبيب قلبي.");
-                        window.location.href = "https://www.google.com"; // إعادة توجيه
-                    }
-                } else {
-                    devToolsOpened = false;
-                }
-            }, 1000); // فحص كل ثانية
-        }
-
-        // منع استخدام F12
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I") || (event.ctrlKey && event.shiftKey && event.key === "C")) {
-                event.preventDefault();
-                
-                window.location.href = "https://www.google.com"; // إعادة توجيه
-            }
-        });
-
-        // استدعاء وظيفة الكشف
-        detectDevTools();
+      
   
 
   </script>
