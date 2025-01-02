@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@distube/ytdl-core": "^4.15.8",
+    "express": "^4.21.2",
+    "install": "^0.13.0",
+    "npm": "^11.0.0",
+    "youtube-dl-exec": "^3.0.12",
+    "ytdl-core": "^4.11.5"
+  }
+}
