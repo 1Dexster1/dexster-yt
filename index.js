@@ -237,5 +237,7 @@ app.get('/download', async (req, res) => {
     }
 });
 
-app.use(express.static(__dirname));
-
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
