@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dexster-yt.pages.dev/sitemap.xml

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ديكسستر - أفضل موقع لمشاهدة يوتيوب بدون إعلانات بجودة عالية وخدمات مميزة.">
+  <meta name="keywords" content="ديكسستر, دكسستر, يوتيوب بدون اعلانات, يوتيوب,dexster-yt,dexster-yt pages dev">
+  <meta name="author" content="Dexster">
+
+
+  <meta property="og:title" content="ديكسستر - أفضل موقع لمشاهدة يوتيوب بدون إعلانات">
+<meta property="og:description" content="استمتع بمشاهدة يوتيوب بجودة عالية بدون أي إعلانات مزعجة.">
+<meta property="og:image" content="https://dexster-yt.pages.dev/dexster.ico">
+<meta property="og:url" content="https://dexster-yt.pages.dev">
+<meta property="og:type" content="website">
+<link rel="icon" href="dexster.ico" type="image/x-icon">
+
+<title>Dexster - YouTube</title>
+
+<link rel="preload" href="./style.css" as="style">
+<link rel="stylesheet" href="./style.css" data-n-g="">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9481262105275439"
+     crossorigin="anonymous"></script>
+ 
+</head>
+<body>
+<h1><span class="dexster-text">Dex</span><span class="image-in-text"></span><span class="dexster-text">ter</span> - YouTube</h1>
+<h2>YouTube Without Ads.</h2>
+<div class="search-bar">
+    <input type="text" id="youtube-search" placeholder="اكتب هنا للبحث">
+    <button1 onclick="searchYouTube()">بحث</button1>
+  </div>
+ <label class="switch">
+    <input id="input" type="checkbox" checked="darkTheme" />
+    <div class="slider round">
+      <div class="sun-moon">
+        <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+          <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+        <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="50"></circle>
+        </svg>
+      </div>
+      <div class="stars">
+        <svg id="star-1" class="star" viewBox="0 0 20 20">
+          <path
+            d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+          ></path>
+        </svg>
+        <svg id="star-2" class="star" viewBox="0 0 20 20">
+          <path
+            d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+          ></path>
+        </svg>
+        <svg id="star-3" class="star" viewBox="0 0 20 20">
+          <path
+            d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+          ></path>
+        </svg>
+        <svg id="star-4" class="star" viewBox="0 0 20 20">
+          <path
+            d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+  </label>
+<ul id="video-list"></ul>
+<div id="youtube-player-container">
+    <iframe id="youtube-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="buttons-container">
+      <button id="share-button" onclick="shareVideo()" class="button">
+         <svg
+            viewBox="0 0 16 16"
+            class="bi bi-lightning-charge-fill"
+            fill="currentColor"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          > <path
+              d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"
+            ></path></svg>
+         Prv Share
+      </button>
+      <button id="download-button" class="button" onclick="download()">
+        <svg
+          viewBox="0 0 16 16"
+          class="bi bi-lightning-charge-fill"
+          fill="currentColor"
+          height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        ><path
+            d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"
+          ></path></svg>Download
+      </button>
+            </div>
+    <div id="video-stats"></div>
+    <!-- قسم التعليقات -->
+    <div id="video-comments">
+      <h3>التعليقات</h3>
+      <!-- سيتم إضافة التعليقات هنا -->
+    </div>
+  </div>
+  <div class="suggestions" id="suggested-videos"></div>
+ <div class="statistics">
+    <div>عدد مرات دخولك للموقع : <span id="visitor-count">0</span></div>
+    <div>إجمالي الفيديوهات المُشغلة : <span id="total-videos">0</span></div>
+    <div>إجمالي عمليات البحث : <span id="total-search-count">0</span></div>
+    <div>آخر بحث : <span id="last-search">لم يتم أي بحث بعد</span></div>
+    <div>الوقت الكلي في الموقع : <span id="total-time">جارٍ الحساب...</span></div>
+    <div>البنج الحالي : <span id="ping" class="ping">جارٍ الحساب...</span></div>
+  </div>
+<div class="container-fluid footer_section1">
+    <p>
+      &copy; 2024 All Rights Reserved. Dev by
+      <a href="https://dexster1.pages.dev" >Dexster</a>
+    </p>
+  </div>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe src="http://fi6.bot-hosting.net:20355/" width="100%" height="100%" style="border: none;"></iframe>
+    </div>
+</div>
+<script>
+    const API_KEY = 'AIzaSyAM9Lg2koyEgcWuEqcevfeYY1DwoqqeTuM'; // ضع مفتاح YouTube API الخاص بك هنا
+let visitorCount = parseInt(localStorage.getItem('visitorCount') || 0);
+    let totalVideos = parseInt(localStorage.getItem('totalVideos') || 0);
+    let totalSearchCount = parseInt(localStorage.getItem('totalSearchCount') || 0);
+    let lastSearchQuery = localStorage.getItem('lastSearchQuery') || 'لم يتم أي بحث بعد';
+ visitorCount++;
+    document.getElementById('visitor-count').textContent = visitorCount;
+    document.getElementById('total-videos').textContent = totalVideos;
+    document.getElementById('total-search-count').textContent = totalSearchCount;
+    document.getElementById('last-search').textContent = lastSearchQuery;
+localStorage.setItem('visitorCount', visitorCount);
+function searchYouTube() {
+      const query = document.getElementById("youtube-search").value.trim();
+      if (!query) return alert("بطل عبط يسطا واكتب حاجة");
+totalSearchCount++;
+      lastSearchQuery = query;
+ document.getElementById('total-search-count').textContent = totalSearchCount;
+      document.getElementById('last-search').textContent = query;
+localStorage.setItem('totalSearchCount', totalSearchCount);
+      localStorage.setItem('lastSearchQuery', query);
+fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&maxResults=20&key=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => {
+          const videoList = document.getElementById('video-list');
+          videoList.innerHTML = '';
+ data.items.forEach(item => {
+            const videoItem = document.createElement('li');
+            const thumbnail = document.createElement('img');
+            thumbnail.src = item.snippet.thumbnails.default.url;
+            thumbnail.className = 'thumbnail';
+const title = document.createElement('span');
+            title.textContent = item.snippet.title;
+videoItem.appendChild(thumbnail);
+            videoItem.appendChild(title);
+            videoItem.onclick = () => playVideo(item.id.videoId);
+ videoList.appendChild(videoItem);
+          });
+        })
+        .catch(error => {
+          console.error("خطأ أثناء استدعاء الـ YouTube API:", error);
+          alert("حدث خطأ أثناء البحث، يرجى المحاولة مرة أخرى.");
+        });
+    }
+function playVideo(videoId) {
+      totalVideos++;
+      document.getElementById('total-videos').textContent = totalVideos;
+      localStorage.setItem('totalVideos', totalVideos);
+const player = document.getElementById('youtube-player');
+      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoId}&key=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.items.length > 0) {
+            const videoData = data.items[0];
+            const statsContainer = document.getElementById('video-stats');
+              function formatNumber(num) {
+  return num ? Number(num).toLocaleString() : "غير متوفر";
+}
+statsContainer.innerHTML = `
+  <h3 class="video-title">${videoData.snippet.title}</h3>
+  <div class="stat-item">
+    <p class="stat-label">المشاهدات :</p>
+    <p class="stat-value">${formatNumber(videoData.statistics.viewCount)}</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-label">لايك :</p>
+    <p class="stat-value">${formatNumber(videoData.statistics.likeCount)}</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-label"> ديس لايك :</p>
+    <p class="stat-value">${formatNumber(videoData.statistics.dislikeCount)}</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-label"> التعليقات :</p>
+    <p class="stat-value">${formatNumber(videoData.statistics.commentCount)}</p>
+  </div>
+`;
+fetchComments(videoId);
+          } else {
+            console.error("لم يتم العثور على بيانات الفيديو.");
+          }
+        })
+        .catch(error => {
+          console.error("خطأ أثناء جلب بيانات الفيديو:", error);
+        });
+    }
+    function fetchComments(videoId) {
+      fetch(`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=5&key=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => {
+          const commentsContainer = document.getElementById('video-comments');
+          commentsContainer.innerHTML = '<h3>التعليقات</h3>'; // تنظيف التعليقات القديمة وإعادة العنوان
+ if (data.items && data.items.length > 0) {
+            data.items.forEach(comment => {
+              const commentSnippet = comment.snippet.topLevelComment.snippet;
+              const commentDiv = document.createElement('div');
+              commentDiv.className = 'comment';
+              commentDiv.onclick = () => openYouTubeVideo(videoId);
+              commentDiv.innerHTML = `
+                <p class="comment-author">${commentSnippet.authorDisplayName}:</p>
+                <p class="comment-text">${commentSnippet.textDisplay}</p>
+              `;
+              commentsContainer.appendChild(commentDiv);
+            });
+          } else {
+            commentsContainer.innerHTML += '<p>مفيش تعليقات</p>';
+          }
+        })
+        .catch(error => {
+          console.error("خطأ أثناء جلب التعليقات:", error);
+          const commentsContainer = document.getElementById('video-comments');
+          commentsContainer.innerHTML = '<h3>التعليقات</h3><p>ف مشكله حصلت</p>';
+        });
+    }
+ function updatePing() {
+      const pingElement = document.getElementById("ping");
+      const startTime = Date.now();
+ fetch("https://www.google.com", { mode: "no-cors" })
+        .then(() => {
+          const ping = Date.now() - startTime;
+          pingElement.textContent = `${ping} مللي ثانية`;
+if (ping <= 50) {
+            pingElement.className = "ping good"; 
+          } else if (ping <= 500) {
+            pingElement.className = "ping medium"; 
+          } else {
+            pingElement.className = "ping high"; 
+          }
+        })
+        .catch(() => {
+          pingElement.textContent = "لا يوجد اتصال";
+          pingElement.className = "ping error"; 
+        });
+    }
+setInterval(updatePing, 2000); 
+    updatePing();
+document.addEventListener("visibilitychange", function () {
+      const player = document.getElementById("youtube-player");
+      if (document.hidden && player.src && player.src.includes("embed")) {
+        if (player.requestPictureInPicture) {
+          player.requestPictureInPicture().catch((error) => {
+            console.error("خطأ في تشغيل الشاشة المصغرة:", error);
+          });
+        }
+      }
+    });
+function shareVideo() {
+  const player = document.getElementById('youtube-player');
+  const shareButton = document.getElementById('share-button');
+    if (!player || !shareButton) {
+    console.error('لا يوجد عنصر player أو shareButton.');
+    return;
+  }
+const videoUrl = player.src;
+  const siteUrl = `${window.location.origin}${window.location.pathname}?video=${encodeURIComponent(videoUrl)}`;
+  navigator.clipboard.writeText(siteUrl)
+    .then(() => {
+      shareButton.style.backgroundColor = "green"; // تغيير لون الزر إلى الأخضر
+      setTimeout(() => {
+        resetShareButton(); // إعادة شكل الزر إلى الحالة الأصلية بعد ثانيتين
+      }, 2000); // إعادة الزر إلى حالته الأصلية بعد ثانيتين
+    })
+    .catch(() => {
+      shareButton.style.backgroundColor = "red"; // تغيير لون الزر إلى الأحمر
+      setTimeout(() => {
+        resetShareButton(); // إعادة شكل الزر إلى الحالة الأصلية بعد ثانيتين
+      }, 2000); // إعادة الزر إلى حالته الأصلية بعد ثانيتين
+    });
+}
+function resetShareButton() {
+  const shareButton = document.getElementById('share-button');
+  if (shareButton) {
+    shareButton.style.backgroundColor = ""; // إزالة الألوان المخصصة
+  }
+}
+function playSharedVideo() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const videoUrl = urlParams.get('video');
+if (videoUrl) {
+    const player = document.getElementById('youtube-player');
+    if (player) {
+      player.src = videoUrl;
+      enableShareButton(); // تمكين زر الشير عند تشغيل الفيديو
+    }
+  }
+}
+function enableShareButton() {
+  const shareButton = document.getElementById('share-button');
+  if (shareButton) {
+    shareButton.disabled = false; // تمكين زر الشير
+  }
+}
+function monitorVideoState() {
+  const player = document.getElementById('youtube-player');
+  if (player) {
+    player.addEventListener('load', () => {
+      if (player.src) {
+        enableShareButton(); // تمكين زر الشير عند تحميل الفيديو
+      }
+    });
+  }
+}
+window.onload = () => {
+  playSharedVideo();
+  monitorVideoState();
+};
+const checkbox = document.getElementById('input');
+if (localStorage.getItem('darkMode') === 'false') {
+  document.body.classList.add('dark-mode'); // تفعيل الوضع الليلي
+  checkbox.checked = true; // تفعيل الزر ليظهر في وضع الليل
+} else {
+  document.body.classList.remove('dark-mode'); // إبقاء الوضع النهاري
+  checkbox.checked = false; // إبقاء الزر في وضع النهار
+}
+checkbox.addEventListener('change', function () {
+  if (checkbox.checked) {
+    document.body.classList.add('dark-mode'); // تفعيل الوضع الليلي
+    localStorage.setItem('darkMode', 'enabled'); // حفظ الحالة في التخزين المحلي
+  } else {
+    document.body.classList.remove('dark-mode'); // العودة للوضع النهاري
+    localStorage.setItem('darkMode', 'disabled'); // حفظ الحالة في التخزين المحلي
+  }
+});
+if (!localStorage.getItem("visitStartTime")) {
+    localStorage.setItem("visitStartTime", Date.now());
+  }
+  window.onload = function() {
+    updateStatistics();
+    setInterval(updateStatistics, 60000);  // التحديث كل دقيقة
+  };
+  function updateStatistics() {
+    const visitStartTime = parseInt(localStorage.getItem("visitStartTime"));
+    const currentTime = Date.now();
+    const timeSpent = currentTime - visitStartTime;
+    const days = Math.floor(timeSpent / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeSpent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeSpent % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("total-time").textContent = `${days} يوم ${hours} ساعة ${minutes} دقيقة`;
+  }
+function download() {
+            document.getElementById("myModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+</script>
+
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9481262105275439"
+     crossorigin="anonymous"></script>
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:360px;height:800px"
+       data-ad-client="ca-pub-9481262105275439"
+       data-ad-slot="4869737238"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "16bb07e7d3dc48309b498e272a07e1f1"}'></script><!-- Cloudflare Pages Analytics --><!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "16bb07e7d3dc48309b498e272a07e1f1"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
